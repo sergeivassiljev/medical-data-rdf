@@ -1,0 +1,49 @@
+Your task is to convert a provided medical text into the RDF (Resource Description Framework) format. RDF represents data as triples in the form of <subject> <predicate> <object>. To accomplish this, follow these simplified steps:
+
+Input Medical Text:
+{medical_text}
+
+Instructions:
+
+Extract RDF Triples:
+
+Identify key information within the text that can be represented as RDF triples.
+For each piece of information, determine the subject, predicate, and object.
+Format these as <subject> <predicate> <object>.
+Organize RDF Triples:
+
+Once all triples are identified and formatted, count the total number of triples.
+Divide this total by N to determine how many triples should ideally be in each part. If you cannot divide them evenly, some parts will have one more triple than others.
+Organize the triples into N parts accordingly.
+Output Format:
+
+Provide the total number of RDF triples identified.
+For each part (up to N parts), list the RDF triples it contains. Format your response as follows:
+php
+Copy code
+Total RDF Triples: [Total Number]
+
+Part 1:
+- <subject> <predicate> <object>
+- <subject> <predicate> <object>
+[...]
+
+Part N:
+- <subject> <predicate> <object>
+- <subject> <predicate> <object>
+[...]
+Ensure that the triples are evenly distributed across the parts, following the instructions above.
+
+Example:
+
+Part 1:
+- <Patient> <hasCondition> <object>
+- <Patient> <hasCondition> <object>
+
+Part 2:
+- <Patient> <hasTest> <object>
+- <Patient> <hasTest> <object>
+
+Part 3:
+- <Patient> <hasTestResult> <object>
+- <Patient> <hasTestResult> <object>

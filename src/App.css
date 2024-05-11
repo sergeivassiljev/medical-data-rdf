@@ -40,6 +40,16 @@ button {
 
 .history-item:hover, .history-item.bg-info {
   background-color: #17a2b8; /* Цвет из Bootstrap класса bg-info */
-  color: rgb(83, 221, 83); /* Цвет текста для лучшей видимости на тёмном фоне */
+  color: rgb(255, 255, 255); /* Цвет текста для лучшей видимости на тёмном фоне */
 }
-
+.rdf-list-container {
+  margin-top: 20px;
+}
+.rdf-part-title {
+  margin-top: 20px;
+  font-weight: bold;
+}
+.rdf-triple {
+  margin-left: 20px;
+  list-style-type: none;
+}
