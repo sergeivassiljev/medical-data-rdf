@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# The possibilities and challenges of using GPT-3 for natural language processing in medicine
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Ülevaade
 
-## Available Scripts
+See projekt on minu diplomi töö, mille teemaks on GPT-3 kasutusvõimalused ja väljakutsed meditsiinivaldkonna loomuliku keele töötluses. Projekti eesmärk on uurida ja demonstreerida, kuidas GPT-3 saab toetada meditsiinilisi protsesse, pakkudes täiustatud tekstianalüüsi ja loomuliku keele töötlemise (NLP) võimekusi.
 
-In the project directory, you can run:
+## Kasutatud Tehnoloogiad
 
-### `npm start`
+- **Python**
+- **OpenAI API**
+- **JavaScript**
+- **React**
+- **Flask**
+- **Bootstrap**
+- **pandas**
+- **matplotlib**
+- **pyplot**
+- **numpy**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Paigaldamine ja Kasutamine
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Nõuded
 
-### `npm test`
+- **Python 3.x** ja **pip**
+- **Node.js** ja **npm** või **yarn**
+- OpenAI API võti
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Sammud
 
-### `npm run build`
+1. **Kloonige repostiitorium:**
+    ```bash
+    git clone https://github.com/teie-kasutajanimi/projekt.git
+    cd projekt
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Paigaldage vajalikud Python'i teegid:**
+    ```bash
+    pip install
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Paigaldage vajalikud Node.js'i teegid:**
+    ```bash
+    npm install
+    ```
+    või
+    ```bash
+    yarn install
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Määrake OpenAI API võti:**
+    Looge `.env` fail ja lisage järgmine rida:
+    ```
+    OPENAI_API_KEY=teie_openai_api_võti
+    ```
 
-### `npm run eject`
+5. **Käivitage server lokaalselt:**
+    ```bash
+    python server.py
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+6. **Käivitage veebiliides:**
+    ```bash
+    npm run start
+    ```
+    või
+    ```bash
+    yarn start
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Märkused
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Selle projekti käigus kasutati umbes 10 miljonit tokenit, et saavutada vajalikud tulemused ja analüüsid.
+- Veenduge, et teil on kehtiv OpenAI API võti, et kasutada GPT-3 teenuseid.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Kaastööd
 
-## Learn More
+Olete teretulnud kaasa lööma selle projekti arendamises! Kui leiate mõne vea või teil on ideid, kuidas seda parandada, esitage palun tõmbepäring (pull request) või looge probleem (issue) GitHubis.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Kontakt
 
-### Code Splitting
+Küsimuste või ettepanekute korral võtke palun ühendust e-posti teel: [servas@taltech.ee](mailto:servas@taltech.ee)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Aitäh, et huvitusite minu projektist!
