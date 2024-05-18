@@ -53,3 +53,20 @@ button {
   margin-left: 20px;
   list-style-type: none;
 }
+.text-display {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.text-display p {
+  margin: 5px 0;  /* Уменьшает отступы между параграфами */
+  color: #333;    /* Темный цвет текста для лучшего чтения */
+}
+
+.loading-text {
+  color: #007bff; /* Синий цвет текста для загрузки */
+  font-style: italic;
+}

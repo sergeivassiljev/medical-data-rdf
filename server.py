@@ -3,13 +3,12 @@ import openai
 from flask_cors import CORS
 import sqlite3
 from datetime import datetime
+import logging
 
 app = Flask(__name__)
 CORS(app)
+logging.basicConfig(level=logging.INFO)
 
-
-
-openai.api_key = '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'
 
 def create_db_and_table():
     conn = sqlite3.connect('requests_responses.db')
@@ -69,12 +68,13 @@ def translate_text_with_gpt(text, source_language='English', target_language='Es
 def generate_rdf():
     data = request.json
     text = data.get('text', '')
+    template = data.get('template', 'rdf_prompt_template.txt')  # Default template
+
+    logging.info(f"Using template: {template}")
     
-    # Malli lugemine failist
-    with open('rdf_prompt_template.txt', 'r') as file:
+    with open(template, 'r') as file:
         prompt_template = file.read()
-    
-    # Teksti lisamine malli
+
     prompt = prompt_template.format(medical_text=text)
     
     response = openai.completions.create(
@@ -88,8 +88,6 @@ def generate_rdf():
         )
     
     generated_text = response.choices[0].text.strip()
-    add_request_response_to_db(generated_text)
-
 
     return jsonify({"generated_rdf": generated_text})
 
@@ -98,7 +96,6 @@ def generate_medical_report():
     data = request.json
     rdf_data = data.get('rdf_data', '')
     
-    # RDF teksti põhjal päringu koostamine
     prompt = f"Tehke meditsiiniline järeldus järgmiste andmete põhjal aruande kujul ja kirjutage, millele tuleks erilist tähelepanu pöörata: {rdf_data} "
     
     response = openai.completions.create(
@@ -112,65 +109,12 @@ def generate_medical_report():
         )
     
     generated_report = response.choices[0].text.strip()
-    add_request_response_to_db(generated_report)  # Функция для сохранения в БД
+    add_request_response_to_db(generated_report) 
 
     return jsonify({"generated_report": generated_report})
-
-# @app.route('/generate_rdf', methods=['POST'])
-# def generate_rdf():
-#     data = request.json
-#     text = data.get('text', '')
-    
-#     # Чтение шаблона из файла для первого запроса
-#     with open('rdf_prompt_template.txt', 'r') as file:
-#         prompt_template = file.read()
-    
-#     # Формирование промпта для первого запроса
-#     first_prompt = prompt_template.format(medical_text=text)
-    
-#     # Первый запрос к GPT-3
-#     first_response = openai.completions.create(
-#         model="gpt-3.5-turbo-instruct",
-#         prompt=first_prompt,
-#         temperature=0.3,
-#         max_tokens=3000,
-#         top_p=1.0,
-#         frequency_penalty=0.0,
-#         presence_penalty=0.0
-#     )
-    
-#     generated_text = first_response.choices[0].text.strip()
-    
-#     # Формирование промпта для второго запроса, используя generated_text
-#     second_prompt = "Please review the provided RDF medical text for any duplicates and inaccuracies. Correct them as needed and provide a concise response containing only the corrected text: \n\n" + generated_text
-    
-#     # Второй запрос к GPT-3
-#     second_response = openai.completions.create(
-#         model="gpt-3.5-turbo-instruct",
-#         prompt=second_prompt,
-#         temperature=0.7,
-#         max_tokens=1000,
-#         top_p=0.5,
-#         frequency_penalty=0.0,
-#         presence_penalty=0.0
-#     )
-    
-#     final_text = second_response.choices[0].text.strip()
-    
-#     # Запись в базу данных, если необходимо
-#     add_request_response_to_db(final_text)
-
-#     return jsonify({"generated_rdf": final_text})
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
-
-
 
 
 if __name__ == '__main__':
     app.run(debug=True)
 
 
-
-# openai.api_key = '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'

@@ -1,0 +1,52 @@
+Teie ülesandeks on teisendada antud meditsiiniline tekst RDF-i (Resource Description Framework) formaati. RDF esitab andmed kolmikute kujul <subjekt> <predikaat> <objekt>. Selle saavutamiseks järgige neid lihtsustatud samme:
+
+Sisendmeditsiinitekst:
+{medical_text}
+
+Juhised:
+
+Eristage RDF-i kolmikud:
+
+Tuvastage tekstis peamine teave, mida saab esitada RDF-i kolmikute kujul.
+Iga teabeosa jaoks määrake subjekt, predikaat ja objekt.
+Formaatige need kujul <subjekt> <predikaat> <objekt>.
+Organiseerige RDF-i kolmikud:
+
+Kui kõik kolmikud on tuvastatud ja vormindatud, lugege kokku kolmikute koguarv.
+Jagage see koguarv N-ga, et määrata, kui palju kolmikut peaks ideaalis olema igas osas. Kui te ei saa neid võrdselt jagada, on mõnes osas üks kolmik rohkem kui teistes.
+Organiseerige kolmikud vastavalt N ossa.
+Väljundi formaat:
+
+Esitage tuvastatud RDF-i kolmikute koguarv.
+Iga osa jaoks (kuni N osa) loetlege RDF-i kolmikud, mida see sisaldab. Formaatige oma vastus järgmiselt:
+
+Kokku RDF-i kolmikut: [Koguarv]
+
+Part 1:
+- <subjekt> <predikaat> <objekt>
+- <subjekt> <predikaat> <objekt>
+[...]
+
+Part 2:
+- <subjekt> <predikaat> <objekt>
+- <subjekt> <predikaat> <objekt>
+
+Part 3:
+- <subjekt> <predikaat> <objekt>
+- <subjekt> <predikaat> <objekt>
+[...]
+Veenduge, et kolmikutel oleks osades ühtlane jaotus, järgides ülaltoodud juhiseid.
+
+Näide:
+
+Part 1:
+- <Patsient> <onSeisund> <objekt>
+- <Patsient> <onSeisund> <objekt>
+
+Part 2:
+- <Patsient> <onTest> <objekt>
+- <Patsient> <onTest> <objekt>
+
+Part 3:
+- <Patsient> <onTestiTulemus> <objekt>
+- <Patsient> <onTestiTulemus> <objekt>

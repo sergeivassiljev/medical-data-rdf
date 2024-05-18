@@ -26,6 +26,7 @@ function App() {
   const [activeHistoryIndex, setActiveHistoryIndex] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showRDFList, setShowRDFList] = useState(false);
+  const [template, setTemplate] = useState("rdf_prompt_template.txt");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,6 +34,7 @@ function App() {
     try {
       const res = await axios.post("http://localhost:5000/generate_rdf", {
         text,
+        template,
       });
       setResponse(res.data);
       setHistory((prevHistory) => [
@@ -139,10 +141,17 @@ function App() {
         <Col lg={8}>
           <Card className="mb-4 shadow-sm">
             <Card.Body>
-              <h2 className="mb-4">
-                Generate and translate RDF from medical text
-              </h2>
+              <h2 className="mb-4">Generate RDF from medical text</h2>
               <Form onSubmit={handleSubmit}>
+                <h6 className="mb-4">Select language</h6>
+                <Form.Control
+                  as="select"
+                  value={template}
+                  onChange={(e) => setTemplate(e.target.value)}
+                >
+                  <option value="rdf_prompt_template.txt">ENG</option>
+                  <option value="rdf_prompt_template_est.txt">EST</option>
+                </Form.Control>
                 <Form.Group>
                   <Form.Label>Enter medical data:</Form.Label>
                   <Form.Control
@@ -151,6 +160,9 @@ function App() {
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                   />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Select template:</Form.Label>
                 </Form.Group>
                 <VoiceInput />
                 <Button variant="primary" type="submit" className="mt-2">

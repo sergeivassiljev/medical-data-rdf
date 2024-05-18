@@ -2,28 +2,28 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 
-# Загрузка данных
-df = pd.read_excel('request_responses4.xlsx')
+# Andmete laadimine Excel-failist, eeldades, et pole päiseid
+df = pd.read_excel('cleared_text_6.xlsx', header=None)
 
-# Заменяем np.nan на пустые строки
-df['generated_rdf'] = df['generated_rdf'].fillna('')
+# Kasutame esimest veergu (veerg 0), kuna ei ole päiseid
+texts = df[0].values  # Saame tekstid otse esimesest veerust
 
-# Теперь получаем тексты после замены
-texts = df['generated_rdf'].values
-
-# Преобразование текстов в TF-IDF векторы
+# Tekstide teisendamine TF-IDF vektoriteks
 vectorizer = TfidfVectorizer()
 tfidf_matrix = vectorizer.fit_transform(texts)
 
-# Расчет косинусного сходства
+# Kosinussarnasuse arvutamine
 cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
 
-# Создаем DataFrame для косинусного сходства
+# DataFrame'i loomine kosinussarnasuse jaoks
 sim_df = pd.DataFrame(cosine_sim)
 
-# Сохраняем DataFrame в Excel файл
-sim_df.to_excel('cosine_similarity_results4.xlsx', index=False)
+# DataFrame'i salvestamine Exceli faili
+sim_df.to_excel('cosine_similarity_results_test_6.xlsx', index=False)
 
-print("Результаты косинусного сходства сохранены в файл 'cosine_similarity_results3.xlsx'.")
+print("Kosinussarnasuse tulemused on salvestatud faili 'cosine_similarity_results.xlsx'.")
+
+
+
 
 

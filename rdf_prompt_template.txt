@@ -19,8 +19,7 @@ Output Format:
 
 Provide the total number of RDF triples identified.
 For each part (up to N parts), list the RDF triples it contains. Format your response as follows:
-php
-Copy code
+
 Total RDF Triples: [Total Number]
 
 Part 1:
